@@ -11,8 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/logout")
 public class Logout extends HttpServlet{
 @Override
-protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	req.getSession().invalidate();
+	resp.getWriter().print("<h1 align='center'>Logout Successfull</h1>");
 	req.getRequestDispatcher("index.html").include(req, resp);
 }
 }
